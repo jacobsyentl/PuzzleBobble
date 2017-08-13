@@ -11,6 +11,6 @@ Group participants:
 * [Shane Deconinck](https://github.com/ShaneDeconinck)
 * [Yentl Jacobs](https://github.com/jacobsyentl)
 
-## Demo
+## Screenshot
 
 ![app Demo](https://github.com/jacobsyentl/PuzzleBobble/blob/master/demo/Demo.png "Demo of the application")
