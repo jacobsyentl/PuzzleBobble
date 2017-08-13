@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_puzzlebobble" default="compile.module.puzzlebobble">
+  <dirname property="module.puzzlebobble.basedir" file="${ant.file.module_puzzlebobble}"/>
+  
+  <property name="module.jdk.home.puzzlebobble" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.puzzlebobble" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.puzzlebobble" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.puzzlebobble" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="puzzlebobble.output.dir" value="${module.puzzlebobble.basedir}/out/production/PuzzleBobble"/>
+  <property name="puzzlebobble.testoutput.dir" value="${module.puzzlebobble.basedir}/out/test/PuzzleBobble"/>
+  
+  <path id="puzzlebobble.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="puzzlebobble.module.production.classpath">
+    <path refid="${module.jdk.classpath.puzzlebobble}"/>
+    <path refid="library.puzzlebobble.classpath"/>
+  </path>
+  
+  <path id="puzzlebobble.runtime.production.module.classpath">
+    <pathelement location="${puzzlebobble.output.dir}"/>
+    <path refid="library.puzzlebobble.classpath"/>
+  </path>
+  
+  <path id="puzzlebobble.module.classpath">
+    <path refid="${module.jdk.classpath.puzzlebobble}"/>
+    <pathelement location="${puzzlebobble.output.dir}"/>
+    <path refid="library.puzzlebobble.classpath"/>
+  </path>
+  
+  <path id="puzzlebobble.runtime.module.classpath">
+    <pathelement location="${puzzlebobble.testoutput.dir}"/>
+    <pathelement location="${puzzlebobble.output.dir}"/>
+    <path refid="library.puzzlebobble.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.puzzlebobble">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.puzzlebobble">
+    <patternset refid="excluded.from.module.puzzlebobble"/>
+  </patternset>
+  
+  <path id="puzzlebobble.module.sourcepath">
+    <dirset dir="${module.puzzlebobble.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="puzzlebobble.module.test.sourcepath">
+    <dirset dir="${module.puzzlebobble.basedir}">
+      <include name="tests"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.puzzlebobble" depends="compile.module.puzzlebobble.production,compile.module.puzzlebobble.tests" description="Compile module PuzzleBobble"/>
+  
+  <target name="compile.module.puzzlebobble.production" depends="register.custom.compilers" description="Compile module PuzzleBobble; production classes">
+    <mkdir dir="${puzzlebobble.output.dir}"/>
+    <javac2 destdir="${puzzlebobble.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.puzzlebobble}/javac">
+      <compilerarg line="${compiler.args.puzzlebobble}"/>
+      <bootclasspath refid="puzzlebobble.module.bootclasspath"/>
+      <classpath refid="puzzlebobble.module.production.classpath"/>
+      <src refid="puzzlebobble.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.puzzlebobble"/>
+    </javac2>
+    
+    <copy todir="${puzzlebobble.output.dir}">
+      <fileset dir="${module.puzzlebobble.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.puzzlebobble.tests" depends="register.custom.compilers,compile.module.puzzlebobble.production" description="compile module PuzzleBobble; test classes" unless="skip.tests">
+    <mkdir dir="${puzzlebobble.testoutput.dir}"/>
+    <javac2 destdir="${puzzlebobble.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.puzzlebobble}/javac">
+      <compilerarg line="${compiler.args.puzzlebobble}"/>
+      <bootclasspath refid="puzzlebobble.module.bootclasspath"/>
+      <classpath refid="puzzlebobble.module.classpath"/>
+      <src refid="puzzlebobble.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.puzzlebobble"/>
+    </javac2>
+    
+    <copy todir="${puzzlebobble.testoutput.dir}">
+      <fileset dir="${module.puzzlebobble.basedir}/tests">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.puzzlebobble" description="cleanup module">
+    <delete dir="${puzzlebobble.output.dir}"/>
+    <delete dir="${puzzlebobble.testoutput.dir}"/>
+  </target>
+</project>

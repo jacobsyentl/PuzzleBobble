@@ -1,0 +1,15 @@
+diff a/PuzzleBobble/src/Game/View/SettingsPane.java b/PuzzleBobble/src/Game/View/SettingsPane.java	(rejected hunks)
+@@ -215,13 +215,6 @@
+                 parent.invokeMenuController();
+             }
+         });
+-
+-        txtPlayerName.textProperty().addListener(new ChangeListener<String>() {
+-            @Override
+-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+-                checkIfNameAndAvatarSelected();
+-            }
+-        });
+     }
+ 
+ 

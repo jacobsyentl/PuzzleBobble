@@ -1,0 +1,145 @@
+.button, #selectBox, #exitButton, #btnPause, #pauseMenuButton{
+    -fx-background-color: #F5D328;
+    -fx-background-insets: 0,1,2;
+    -fx-font-size: 20;
+    -fx-font-family:'Fredoka One';
+    -fx-text-fill: #164F86;
+    -fx-font-weight: bolder;
+    -fx-border-width: 4;
+    -fx-border-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 10;
+}
+
+#pauseMenuButton {
+    -fx-font-size: 20;
+}
+#nextLevelButton{
+    -fx-font-size: 15;
+}
+
+#tableView{
+    -fx-base: #f5d328;
+    -fx-control-inner-background: #f5d328;
+    -fx-background-color: #f5d328;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+    -fx-font-family:'Fredoka One';
+}
+
+#tableView .column-header-background {
+    -fx-background-color: transparent;
+}
+
+#tableView .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+#tableView .column-header .label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #323232;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+#tableView:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+#btnPause{
+    -fx-background-radius: 50;
+    -fx-border-width: 0;
+}
+
+#exitButton {
+    -fx-background-color: #164F86;
+    -fx-text-fill: #F5D328;
+}
+
+#mainMenuButton:hover, #btnPause:hover, #pauseMenuButton:hover{
+    -fx-background-color:#f2e357 ;
+}
+
+#exitButton:hover{
+    -fx-background-color: #1a64a5;
+}
+
+#container{
+    /*#F6EDAE*/
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+#mainPane{
+    -fx-background-image: url(file:../../assets/images/blue_sky.jpg);
+}
+
+#gamePaneText{
+    -fx-font-size: 28;
+    -fx-font-family:'Fredoka One';
+    -fx-text-fill: #164F86;
+    -fx-font-weight: bolder;
+}
+
+#creditsPaneText{
+    -fx-font-size: 15;
+    -fx-font-family:'Fredoka One';
+    -fx-text-alignment: left;
+    -fx-text-fill: #164F86;
+    -fx-font-weight: bolder;
+}
+
+#creditsPaneTitle{
+    -fx-font-size: 20;
+    -fx-font-family:'Fredoka One';
+    -fx-text-alignment: center;
+    -fx-text-fill: #164F86;
+    -fx-font-weight: bolder;
+}
+
+.radio-button{
+    -fx-padding: 10px;
+    -fx-font-size: 20;
+    -fx-font-family:'Fredoka One';
+    -fx-background-radius: 10px;
+    -fx-border-radius: 15px;
+
+}
+
+.radio-button:selected .dot{
+    -fx-background-radius: 15px;
+    -fx-background-color: cornflowerblue;
+    -fx-border-width: 0px;
+}
+
+#label{
+    -fx-font-size: 30;
+    -fx-font-family:'Fredoka One';
+}
+
+#labelHighScores{
+    -fx-font-size: 25;
+    -fx-font-family:'Fredoka One';
+}
+
+.text-field{
+    -fx-background-color: #F5D328;
+    -fx-background-insets: 0,1,2;
+    -fx-font-size: 20;
+    -fx-font-family:'Fredoka One';
+    -fx-text-fill: #164F86;
+    -fx-font-weight: bolder;
+    -fx-border-width: 4;
+    -fx-border-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 10;
+}
